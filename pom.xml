@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>test</groupId>
   <artifactId>test</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>test Maven Webapp</name>
   <url>http://maven.apache.org</url>
@@ -18,6 +18,20 @@
   <build>
 	<finalName>test</finalName>
 	<plugins>
+	  <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-jar-plugin</artifactId>
+		<version>2.4</version>
+		<configuration>
+		  <archive>
+			<manifest>
+			  <addClasspath>true</addClasspath>
+			  <classpathPrefix>lib</classpathPrefix>
+			  <mainClass>test.Test</mainClass>
+			</manifest>
+		  </archive>
+		</configuration>
+	  </plugin>
 	  <plugin>
 		<groupId>com.spotify</groupId>
 		<artifactId>docker-maven-plugin</artifactId>
